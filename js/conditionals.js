@@ -180,10 +180,9 @@ function numberPick() {
                         alert("The number " + answer + " is Odd.");
                     }
                 }
-                addHundred(answer /+ 100);
+                addHundred(answer);
                 function addHundred(x) {
-                    let sumOf = 100 + answer
-                    alert("Your number plus 100 is " + sumOf + "!");
+                    alert("Your number plus 100 is " + (answer + 100));
                 }
                 positveOrNegative(answer);
                 function positveOrNegative(x) {
@@ -197,7 +196,7 @@ function numberPick() {
                 }
             }
         } else{
-            alert("INCORRECT INPUT DATA TYPE")
+            alert("Please refresh the page and enter a number?")
         }
 }
 numberPick()
