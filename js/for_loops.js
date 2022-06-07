@@ -16,6 +16,19 @@ function randomOddOrEven(x) {
     }
 }
 
-// for (let i = 1; i < 10, i++;) {
-//
-// }
+function plusSame(x) {
+    for (let i = 1; i < 10; i++) {
+        var count = []
+        for (let b = 1; b<= i; b++) {
+            count.push(i);
+        }
+        console.log(count.join(""));
+    }
+}
+
+function minusFive(x) {
+    for (let i = 100; i > 0; i--) {
+        console.log(i);
+        i = i - 4;
+    }
+}
