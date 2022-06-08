@@ -18,7 +18,7 @@ function randomOddOrEven(x) {
 
 function plusSame(x) {
     for (let i = 1; i < 10; i++) {
-        var count = [];
+        let count = [];
         for (let b = 1; b<= i; b++) {
             count.push(i);
         }
@@ -27,8 +27,7 @@ function plusSame(x) {
 }
 
 function minusFive(x) {
-    for (let i = 100; i > 0; i--) {
+    for (let i = 100; i > 0; i -= 5) {
         console.log(i);
-        i = i - 4;
     }
 }

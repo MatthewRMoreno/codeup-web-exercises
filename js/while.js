@@ -15,4 +15,3 @@ function iceCreamForSale() {
     }
         console.log("Yay! I sold them all!");
 }
-iceCreamForSale()
