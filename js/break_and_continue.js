@@ -10,11 +10,11 @@ while(true) {
 }
 //switches the answer to the prompt a number data type
 let value = parseInt(question)
-//Rounds he nuber up or down if it is a decimal value
+//Rounds he number up or down if it is a decimal value
 let fixNum = value.toFixed()
 let number = "Number to skip is: " + fixNum
 console.log(number);
-    for (let i = 1; i < 50; i++) {
+    for (let i = 1; i <= 50; i++) {
         if ((i % 2) === 0) {
             continue;
         }
