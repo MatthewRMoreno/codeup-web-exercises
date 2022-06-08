@@ -17,12 +17,9 @@ function randomOddOrEven(x) {
 }
 
 function plusSame(x) {
-    for (let i = 1; i < 10; i++) {
-        let count = [];
-        for (let b = 1; b<= i; b++) {
-            count.push(i);
-        }
-        console.log(count.join(""));
+    for (let i = 1; i <= 9; i++) {
+        let iAsString = i.toString();
+        console.log(iAsString.repeat(i));
     }
 }
 
