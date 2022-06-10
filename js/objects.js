@@ -26,6 +26,7 @@
         return ("Hello, " + this.firstName + " " + this.lastName + " how are you doing today.");
     }
     console.log(person.sayHello());
+    console.log("---")
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
      * more than $200. If a shopper spends more than $200, they get a 12%
@@ -54,7 +55,7 @@
             console.log ("Congratulations " + shopper.name + ", you qualify for a discount of 12%! Your new total is $" + discPrice + "!");
         }
     })
-
+console.log("---")
     //     }
 
     /** TODO:
@@ -69,13 +70,13 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
-    // var books = [
-    //     {title: "The Sorcerers Stone", author.firstName: "J.K", author.lastName: "Rowling"},
-    //     {title: "Eragon", author.firstName: "Christopher", author.lastName: "Paolini"},
-    //     {title: "The Life of Pi", author.firstName: "Yann", author.lastName: "Martel"},
-    //     {title: "The Book Thief", author.firstName: "Markus", author.lastName: "Zusak"},
-    //     {title: "Percy Jackson and The Lightning Thief", author.firstName: "Rick", author.lastName: "Riordan"}
-    // ];
+    var books = [
+        {title: "The Sorcerers Stone", author: {firstName: "J.K", lastName: "Rowling"}},
+        {title: "Eragon", author: {firstName: "Christopher", lastName: "Paolini"}},
+        {title: "The Life of Pi", author: {firstName: "Yann", lastName: "Martel"}},
+        {title: "The Book Thief", author: {firstName: "Markus", lastName: "Zusak"}},
+        {title: "Percy Jackson and The Lightning Thief", author: {firstName: "Rick", lastName: "Riordan"}}
+    ];
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -100,7 +101,14 @@
      *      ---
      *      ...
      */
-
+    let i = 0
+    books.forEach(function (book) {
+        console.log("Book # " + (i + 1));
+        console.log("Title: " + book.title);
+        console.log("Author " + book.author.firstName + " " + book.author.lastName)
+        console.log("---")
+        i++
+    })
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -112,5 +120,17 @@
      *   `showBookInfo` function.
      *
      */
-
+    function createBook(titleName, authorName) {
+        let book;
+        book = [{title: titleName, author: authorName}];
+        return book;
+    }
+    function showBookInfo(bookObject) {
+        bookObject.forEach(function(info){
+            console.log("Book # " + (i + 1));
+            console.log("Title: " + info.title);
+            console.log("Author: " + info.author);
+        })
+    }
+    showBookInfo(createBook("Mocking Jay", "Suzanne Collins"))
 })();
