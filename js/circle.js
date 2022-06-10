@@ -9,7 +9,7 @@
             // TODO: complete this method
             // hint: area = pi * radius^2
 
-            return Math.PI*(circle.radius * circle.radius)// TODO: return the proper value
+            return Math.PI*(Math.pow(circle.radius, 2))// TODO: return the proper value
         },
 
         logInfo: function (doRounding) {
