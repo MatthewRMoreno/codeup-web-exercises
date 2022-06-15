@@ -62,15 +62,17 @@ console.log(averageYearsExp);
 
 console.log(longestEmail);
 
-// let userString = users.reduce(function(userList, user) {
-//     return userString
-// });
-//
-// //bonus
-// let uniqueLanguages = users.reduce(function(uniqueLanguagesSoFar, user) {
-//         for (let language of user.languages) {
-//             uniqueLanguagesSoFar.add(language)
-//         }
-//         return uniqueLanguagesSoFar;
-//     }, new Set());
-//     console.log(uniqueLanguages);
+let userString = users.reduce(function(userList, user) {
+    return user.name + ", " + userList;
+},"");
+let userStringTwo = userString.substr(0, userString.length -2)
+console.log("Your instructors are: " + userStringTwo)
+
+//bonus
+let uniqueLanguages = users.reduce(function(uniqueSoFar, user) {
+        for (let language of user.languages) {
+            uniqueSoFar.add(language)
+        }
+        return uniqueSoFar;
+    }, new Set());
+    console.log(uniqueLanguages);
