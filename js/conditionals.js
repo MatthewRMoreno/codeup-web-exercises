@@ -182,7 +182,7 @@ function numberPick() {
                 }
                 addHundred(answer);
                 function addHundred(x) {
-                    alert("Your number plus 100 is " + (answer + 100));
+                    alert("Your number plus 100 is " + (parseFloat(answer) + 100));
                 }
                 positveOrNegative(answer);
                 function positveOrNegative(x) {
