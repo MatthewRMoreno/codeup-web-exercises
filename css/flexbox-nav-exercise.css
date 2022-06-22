@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+nav {
+    background: darkgray;
+    display: flex;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+ul {
+    list-style: none;
+}
+nav a {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+    padding: .5em;
+}
+nav a:hover {
+    color: blue;
+}
+.left-links {
+    flex-grow: 1;
+    display: flex;
+    padding: 0;
+    margin-right: 0;
+    font-family: 'Work sans', sans-serif;
+}
+.right-links {
+    display: flex;
+    padding: 0;
+    margin-left: auto;
+    font-family: 'Work sans', sans-serif;
+}
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3em;
+    padding: .2em 0px;
+    justify-content: center;
+    margin: auto;
+    flex-grow: 1;
+}
