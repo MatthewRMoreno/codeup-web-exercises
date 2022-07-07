@@ -4,14 +4,37 @@
   <title>Konami Code</title>
 </head>
 <body>
-<h1>Konami Code</h1>
+<h1 id="h1">Konami Code</h1>
 
-<script src="/js/jquery.js"></script>
 <script>
   "use strict";
 
-  $(document).keyup(function(event){
-    console.log(event.keyCode);
+  let keyArray = [];
+  let lastKey = Date.now();
+
+  document.addEventListener("keydown", function (event) {
+    const key = event.key.toLowerCase();
+
+    const currentTime = Date.now();
+
+    if (currentTime - lastKey > 2000) {
+      keyArray = []
+    }
+
+    // pushes key into array
+    keyArray.push(key);
+    lastKey = currentTime;
+    console.log(keyArray);
+    let correctSequence = ['arrowup', 'arrowup', 'arrowdown', 'arrowdown', 'arrowleft', 'arrowright', 'arrowleft', 'arrowright', 'b', 'a', 'enter']
+
+    if (keyArray.toString() === correctSequence.toString()) {
+      document.body.style.backgroundImage = "url('img/Contra-background.gif')";
+    }
+    if (keyArray.toString() === correctSequence.toString()) {
+      alert ("You have added 30 lives!")
+    }
+
+
   });
 </script>
 </body>
