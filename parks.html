@@ -12,6 +12,18 @@
     .green-background {
       background-color: green;
     }
+
+    .blue-text {
+      color: blue;
+    }
+
+    .yellow-button {
+      background-color: yellow;
+    }
+
+    .bold-font {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -72,7 +84,9 @@
 </dl>
 
 <button id="invis-tog">Toggle Visibility</button>
+<button id="turn-yellow">Add Yellow BG</button>
 <script>
+
   //1. Get a reference for the anchor
   const myToggle = document.querySelector("#invis-tog")
   //2. add a click event listener to the anchor
@@ -85,6 +99,7 @@
       dd.classList.toggle("invisible");
     })
   })
+
   //BONUS
   //1. target all dt elements
   const myDTs = document.querySelectorAll("dt");
@@ -96,8 +111,28 @@
       this.classList.toggle("green-background")
     })
   })
-  // let parkUL = document.getElementsByTagName("ul");
-  // let parkLI = parkUL.getElementsByTagName("li");
+
+  const yellowBTN = document.querySelector("#turn-yellow")
+  yellowBTN.addEventListener("click", function(event) {
+    const parkUL = document.getElementsByTagName("ul");
+    for (let i = 0; i < parkUL.length; i++) {
+      parkUL[i].lastElementChild.style.backgroundColor = "yellow"
+    }
+  })
+
+  const header = document.querySelectorAll("h3");
+  header.forEach(function(li) {
+    li.addEventListener("click", function() {
+      this.nextElementSibling.classList.toggle("bold-font")
+    })
+  })
+
+  let liList = document.querySelectorAll("li");
+  liList.forEach(function(li) {
+    li.addEventListener("click", function() {
+      this.parentElement.firstElementChild.classList.toggle("blue-text")
+    })
+  })
 
 </script>
 </body>
