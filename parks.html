@@ -3,26 +3,36 @@
 <head>
   <meta charset="UTF-8">
   <title>Parks</title>
+
+  <style>
+    .invisible {
+      visibility: hidden;
+    }
+
+    .green-background {
+      background-color: green;
+    }
+  </style>
 </head>
 <body>
 
 <h1>National Parks FAQ</h1>
-  <h3 id="national-park-heading">YellowStone</h3>
-    <ul id="national-park">
+  <h3 id="yellowstone-heading">YellowStone</h3>
+    <ul id="national-park1">
       <li>Yellowstone national park encompasses 3,472 square miles or 2,221,766 acres, which makes it larger than Rhode Island and Delaware combined</li>
       <li>Yellowstone is home to more than 500 active geysers, thi is more than half of the worlds geysers. </li>
       <li>Home to more than 280 species of birds.</li>
       <li>More than 1,800 known archaeological sites within the park.</li>
     </ul>
-  <h3>Yosemite</h3>
-    <ul>
+  <h3 id="yosemite-heading">Yosemite</h3>
+    <ul id="national-park2">
       <li>Granite rock formations in Yosemite glow like fire at sunset.</li>
       <li>Diverse landscape supports more than 400 species.</li>
       <li>Home to Yosemite Falls, one of the tallest waterfalls in the world measured at 2,425 feet.</li>
       <li>One of the few places in the world where you can see a rainbow at night. If the sky is clear and the moon is full the moonlight hits the waterfalls mist and creates a rainbow.</li>
     </ul>
-  <h3>Everglades</h3>
-    <ul>
+  <h3 id="everglades-heading">Everglades</h3>
+    <ul id="national-park3">
       <li>Largest remaining subtropical wilderness left in North America.</li>
       <li>Contains one of the highest concentrations of species vulnerable to extinction in th United States.</li>
       <li>The only place in the world where American alligators and American crocodiles coexist in the wild.</li>
@@ -31,35 +41,64 @@
 
 <dl>
   <dt>How many people visit the national parks?</dt>
-  <dd>Total recreation visitors to the national parks in 2018: 318,211,833.</dd>
+  <dd class="invisible">Total recreation visitors to the national parks in 2018: 318,211,833.</dd>
 
   <dt>How old is the National Park System?</dt>
-  <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.</dd>
+  <dd class="invisible">The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.</dd>
 
   <dt>How many employees are in the National Park Service?</dt>
-  <dd>Permanent, temporary, and seasonal employees: More than 20,000</dd>
+  <dd class="invisible">Permanent, temporary, and seasonal employees: More than 20,000</dd>
 
   <dt>What is the origin of the National Park Service arrowhead?</dt>
-  <dd>The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951.</dd>
+  <dd class="invisible">The arrowhead was authorized as the official National Park Service emblem by the Secretary of the Interior on July 20, 1951.</dd>
 
   <dt>How many areas are in the National Park System?</dt>
-  <dd>The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands.</dd>
+  <dd class="invisible">The system includes 419 areas covering more than 85 million acres in every state, the District of Columbia, American Samoa, Guam, Puerto Rico, and the Virgin Islands.</dd>
 
   <dt>What is the largest national park site?</dt>
-  <dd>Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres.</dd>
+  <dd class="invisible">Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres.</dd>
 
   <dt>What is the National Park Service budget?</dt>
-  <dd>Fiscal Year (FY) 2014 Enacted: $2.98 billion.</dd>
+  <dd class="invisible">Fiscal Year (FY) 2014 Enacted: $2.98 billion.</dd>
 
   <dt>Can I bring my pet to a national park?</dt>
-  <dd>Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities.</dd>
+  <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities.</dd>
 
   <dt>How do I apply for a job with the National Park Service?</dt>
-  <dd>National Park Service jobs, including both permanent and seasonal positions, are listed on USAJOBs.</dd>
+  <dd class="invisible">National Park Service jobs, including both permanent and seasonal positions, are listed on USAJOBs.</dd>
 
   <dt>What do I need to know about driving off road in national parks?</dt>
-  <dd>Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
+  <dd class="invisible">Before you head out, check with the national parks that you intend to visit. In many national parks, off-road driving is illegal. Where off-road driving is allowed, the National Park Service regulates it.</dd>
 </dl>
 
+<button id="invis-tog">Toggle Visibility</button>
+<script>
+  //1. Get a reference for the anchor
+  const myToggle = document.querySelector("#invis-tog")
+  //2. add a click event listener to the anchor
+  myToggle.addEventListener("click", function(event) {
+    //3. in the event listener function, toggle the class invisible
+    //3a. get all the dd's
+    //3b. for each dd, toggle its invisible class
+    const myDDs = document.querySelectorAll("dd");
+    myDDs.forEach(function(dd) {
+      dd.classList.toggle("invisible");
+    })
+  })
+  //BONUS
+  //1. target all dt elements
+  const myDTs = document.querySelectorAll("dt");
+  myDTs.forEach(function(dt) {
+    //2. add a click event listener to each dt element
+    dt.addEventListener("click", function () {
+      //3. when it is clicked, turn its background color to green
+      // this.style.backgroundColor = "green";
+      this.classList.toggle("green-background")
+    })
+  })
+  // let parkUL = document.getElementsByTagName("ul");
+  // let parkLI = parkUL.getElementsByTagName("li");
+
+</script>
 </body>
 </html>
