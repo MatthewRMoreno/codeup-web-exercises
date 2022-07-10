@@ -1,5 +1,49 @@
-.jumbotron {
-    background-image: url("https://java.codeup.com/examples/bootstrap/pizza.png");
-    height: 346px;
-    background-size: cover;
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
+
+.navbar-toggler-icon {
+    background: rgba(81, 187, 27, 0.44);
+}
+
+.user-profile-pic {
+    width: 12px;
+}
+
+.nav-item {
+
+}
+
+.nav-link {
+    color: black;
+}
+
+#main-navigation :nth-child(4) {
+    width: 1050px;
+}
+
+.navbar {
+    align-items: center;
+}
+
+.navbar-nav {
+
+}
+
+.nav {
+    padding-left: 12px;
+
+}
+
+.btn {
+
+}
+
+
+.s{
+    padding-left: 11em;
+}
+
+h1 {
+    width: 120%;
+    color: rgba(0, 0, 0, 0.71);
 }
