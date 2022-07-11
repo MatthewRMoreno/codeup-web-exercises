@@ -56,14 +56,64 @@
     document.addEventListener("DOMContentLoaded", function () {
 
       // add your code here
-
+      
+      function countTodos() {
+        return document.querySelector("#my-todos").children.length;
+      }
+      let numTodo = 1
+      let inputText = document.getElementById("add-todo-text")
+      let addButton = document.getElementById("add-todo")
+      let cardDiv =  document.getElementById("my-todos")
+      addButton.addEventListener("click", addTodo)
+      
       function addTodo() {
-
+        // if(cardInfo.trim().length < 1) {
+        //   inputText.classList.add("is-invalid")
+        //   inputText.classList.remove("is-valid")
+        //   is-valid = false;
+        // } else {
+        // }
+        if (numTodo === 10) {
+          console.log("Max limit of cards reached");
+          return;
+        }
+        let card = document.createElement("div")
+        card.className = "new-card card col-2 border-primary"
+        
+        let cardInfo = inputText.value
+        
+        let cardBody = document.createElement("div")
+        cardBody.className = "card-body"
+        cardBody.innerText = cardInfo
+        
+        let cardFooter = document.createElement("div")
+        cardFooter.className = "card-footer"
+        
+        let deleteButton = document.createElement("button")
+        deleteButton.className = "delete-todo"
+        deleteButton.innerText = "Delete Todo"
+        
+        card.appendChild(cardBody)
+        cardFooter.appendChild(deleteButton)
+        card.appendChild(cardFooter)
+        cardDiv.appendChild(card)
+        
+        addDelete()
       }
-
+      
+      
+      
+      function addDelete() {
+        let allDelete = document.querySelectorAll(".delete-todo")
+        for (let i = 0; i < allDelete.length; i++) {
+          allDelete[i].addEventListener("click", deleteTodo)
+        }
+      }
+      
       function deleteTodo(event) {
-
+        this.parentElement.parentElement.remove()
       }
+     
 
     });
   })();
