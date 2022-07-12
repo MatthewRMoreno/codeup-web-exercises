@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog</title>
+</head>
+<body>
+<div id="posts">
+
+</div>
+<script>
+    (async function newBlog() {
+        let blog = await fetch("data/blog.json")
+            .then(async function (response) {
+                if (response.status !== 200) {
+                    console.log("Not what you are looking for");
+                    return [];
+                } else
+                    return await response.json();
+            })
+        for (let i = 0; i < blog.length; i++) {
+            console.log(blog[i]);
+        }
+        let div = document.getElementById("posts")
+        for (let i = 0; i < blog.length; i++) {
+            div.innerHTML +=
+                `<h2>${blog[i].title}</h2>
+                 <div><p>${blog[i].content}</p></div>
+                 <ul><li>${blog[i].categories}</li></ul>
+                 <div>${blog[i].date}</div>
+                `
+        }
+    })()
+</script>
+</body>
+</html>
