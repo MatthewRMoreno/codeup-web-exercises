@@ -16,5 +16,15 @@
             "sugar"
         ],
         "date": "February 14, 2015"
-    }
+    }, {
+    "title": "The Third Post",
+    "content": "This is my third blog post. I am testing to see if this post will be added into the page by adding another entry in the JSON. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in. ",
+    "categories": [
+        "test",
+        "json",
+        "doc",
+        "rob"
+    ],
+    "date": "July 12, 2022"
+}
 ]
