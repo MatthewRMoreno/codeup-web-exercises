@@ -25,7 +25,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <script>
-(async function () {
+(async function update() {
     "use strict";
     let data = await fetch("data/inventory.json")
         .then(async function (response) {
@@ -39,11 +39,6 @@
     for (let i = 0; i < data.length; i++) {
         console.log(data[i]);
     }
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
-    // for ( let )
     let tbody = document.querySelector("tbody")
     for (let i = 0; i < data.length; i++) {
         let tableData = tbody.innerHTML +=
@@ -53,12 +48,15 @@
             <td>${data[i].price}</td>
             <td>${data[i].categories}</td>
             </tr>`;
-    }
+    
     let updateBtn = document.getElementById("BTN1")
     updateBtn.addEventListener("click", function() {
-    
+        tbody.innerHTML = ""
+        tbody.innerHTML = tableData
     })
+    }
 })();
+
 </script>
 </body>
 </html>
