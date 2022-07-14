@@ -24,13 +24,15 @@
 <div id='map'></div>
 <button id="zoom-in">+</button>
 <button id="zoom-out">-</button>
-<div id="drop-marker"></div>
+<button id="drop-marker">add marker</button>
 
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js'></script>
 <script src="js/keys.js"></script>
 <!-- Custom JS -->
 <script>
+    (async function() {
+    
     mapboxgl.accessToken = "pk.eyJ1IjoibWF0dG1vcmVubyIsImEiOiJjbDVsNGFvcTIwMGNyM2RvZG9vM2k0ZmdlIn0.ltJrWt9lIC6afF9YiyjYzg";
     const map = new mapboxgl.Map({
         container: 'map',
@@ -38,17 +40,6 @@
         zoom: 10,
         center: [-98.4916, 29.4252],
         projection: 'globe'
-    });
-    map.on('load', () => {
-        map.addLayer({
-            id: 'terrain-data',
-            type: 'line',
-            source: {
-                type: 'vector',
-                url: 'mapbox://mapbox.mapbox-terrain-v2'
-            },
-            'source-layer': 'contour'
-        });
     });
     
     // when the zoom in button is clicked, decrease the maps zoom level
@@ -59,6 +50,7 @@
         map.setZoom(currentZoom);
     });
     
+    //
     const zoomOut = document.querySelector("#zoom-out")
     zoomOut.addEventListener("click", function() {
         let currentZoom = map.getZoom();
@@ -68,26 +60,36 @@
     
     document.querySelector("#drop-marker").addEventListener("click", function(event) {
         let marker = new mapboxgl.Marker();
-        marker.setLngLat([-98, 28])
+        marker.setLngLat([-100, 30])
         marker.addTo(map)
         
         //add a popup to this
         let popup = new mapboxgl.Popup()
-        popup.setLngLat([-98, 28]);
-        popup.setHTML("<h1>Mapbox</h1>")
+            .setLngLat([-98.489615, 29.426827])
+            .setHTML("<p>Codeup Rocks!</p>")
+            .addTo(map)
     })
     
     function getLatLngFromAddress(address, token = MAP_BOX_API_KEY) {
-        let url = 'https://api.mapbox.com/geocoding/v5/mapbox.places';
-        fetch(url + endPoint + encodeURIComponent(address) + '.json' + "?" + 'access_token=' + token)
+        let baseUrl = 'https://api.mapbox.com';
+        let endPoint = '/geocoding/v5/mapbox.places/';
+        return fetch(baseUrl + endPoint + encodeURIComponent(address) + '.json' + "?" + 'access_token=' + token)
             .then(function(res) {
                 return res.json();
-            })
-            // to get all the data from the request, comment out the following three lines...
-            .then(function(data) {
+                // to get all the data from the request, comment out the following three lines...
+            }).then(function(data) {
+                // console.log(data)
                 return data.features[0].center;
-            })
+            });
     }
+    
+    let coords = await getLatLngFromAddress("Belton, TX")
+    console.log(coords);
+    
+    const belton = new mapboxgl.Marker();
+    belton.setLngLat(coords);
+        belton.addTo(map);
+    })()
 </script>
 </body>
 </html>
