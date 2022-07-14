@@ -83,28 +83,39 @@
                 'LatLng':[-98.59350,29.56576],
                 'address':'8823 Wurzbach Rd, San Antonio, TX 78240',
                 'name':"Tommy's Restaurant",
-                'image':'img/tommys-tacos.jpeg',
+                'image':src="img/tommys-tacos.jpeg",
                 'hours':'7am-3pm',
                 'menu':'https://www.mytommys.com/',
             },{
                 'LatLng':[-98.4318, 29.52027],
                'address':'2015 NE Interstate 410 Loop, San Antonio, TX 78217',
                'name':'Comfort Cafe',
-                'image':'comfort-cafe.jpeg',
+                'image':src="comfort-cafe.jpeg",
                'hours':'8am-4pm',
                'menu':'https://www.serenitystar.org/menu',
             },{
                 'LatLng':[-97.39521, 27.71926],
                 'address':'4201 S Padre Island Dr #4405, Corpus Christi, TX 78411',
                 'name':'La Playa',
-                'image':'img/la-playa.jpeg',
+                'image':src="img/la-playa.jpeg",
                 'hours':'11am-10pm',
                 'menu':'https://www.laplaya.cc/',
             }]
             //use a forEach loop and refactor the code
-            restaurants.forEach(function(array) {
-                let mingo = {restaurants.LatLng}
+            restaurants.forEach(function (restaurant) {
+                restaurant.marker = new mapboxgl.Marker()
+                    .setLngLat(restaurant.LatLng)
+                    .addTo(map);
+                restaurant.popup = new mapboxgl.Popup()
+                    .setHTML(`
+                    <h5>${restaurant.name}</h5>
+                    <p><h6>${restaurant.address}</h6></p>
+                    <p><em>${restaurant.hours}</em></p>
+                    <img src=${restaurant.image} alt="logo">
+                    `)
+                restaurant.marker.setPopup(restaurant.popup)
             })
+            
            
 
     </script>
