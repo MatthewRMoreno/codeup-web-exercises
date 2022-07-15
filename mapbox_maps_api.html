@@ -65,8 +65,8 @@
             map.on('style.load', () => {
                 map.setFog({}); // Set the default atmosphere style
             });
-            //Redraw map with zoom levels 5, 15, 20
-            //Zoom in
+            // Redraw map with zoom levels 5, 15, 20
+            // Zoom in
             const zoomIn = document.querySelector("#zoom-in")
             zoomIn.addEventListener("click", function () {
                 let currentZoom = map.getZoom();
@@ -151,9 +151,18 @@
                     `)
                 restaurant.marker.setPopup(restaurant.popup)
             })
-            async function searchBar() {
-            
-            }
+            const searchButton = document.getElementById("search-button")
+            searchButton.addEventListener("click", async function() {
+                //get address from text input
+                const addressInput = document.querySelector("#loc-search");
+                const newAddress = addressInput.value;
+                //get geocode info from the address
+                let info = await getLatLngFromAddress(newAddress);
+                //center the map on the new coords
+                map.setCenter(info.LatLng);
+                //make a marker for new location
+
+            })
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </body>
