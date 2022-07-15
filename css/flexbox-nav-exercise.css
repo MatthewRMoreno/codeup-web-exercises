@@ -4,7 +4,7 @@
 body {
     margin: 0;
 }
-nav {
+.top-nav {
     background: darkgray;
     display: flex;
     margin-top: 20px;
@@ -13,6 +13,9 @@ nav {
 }
 ul {
     list-style: none;
+}
+.hyperlink {
+    font-weight: bold;
 }
 nav a {
     text-decoration: none;
@@ -39,8 +42,28 @@ nav a:hover {
 .logo {
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;
-    padding: .2em 0px;
+    padding: .2em 0;
     justify-content: center;
     margin: auto;
     flex-grow: 1;
 }
+/*a:hover {*/
+/*    color: blue;*/
+/*}*/
+/*.top-nav {*/
+/*    background: darkgray;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*}*/
+/*.nav-link {*/
+/*    color: black;*/
+/*    font-weight: bold;*/
+/*    text-decoration: none;*/
+/*    padding: 1.5em;*/
+/*}*/
+
+/*.logo {*/
+/*    font-size: 3em;*/
+/*    padding-top: 0.2em;*/
+/*    padding-bottom: 0.2em;*/
+/*}*/
