@@ -5,7 +5,7 @@ export default function Navbar(props) {
 
     // everyone can see home
     let html = `
-        <nav>
+        <nav class="navbar">
             <a class="jalopy-nav" href="/" data-link>Home</a>`;
 
     // everyone can see about
@@ -21,7 +21,10 @@ export default function Navbar(props) {
         <a class="jalopy-nav" href="/register" data-link>Register</a>`;
     }
 
-    html += `<a class="jalopy-nav" href="/dogs" data-link>Dog Facts</a>`;
-    html += `</nav>`;
+    html = html + `<a class="jalopy-nav" href="/dogs" data-link>Dog Facts</a>`;
+
+    html = html + `<a class="jalopy-nav" href="/quotes"
+    data-link>Quotes</a>`;
+    html+= '</nav>';
     return html;
 }
