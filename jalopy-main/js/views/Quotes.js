@@ -54,8 +54,7 @@ export default function quotesHTMLFunction(props) {
 
 function buildTopHTML() {
     return `
-        <!--build the top part of the screen-->
-        <h1>Quotes</h1>
+        <h1 class="text-center">Quotes</h1>
         <table class="table table-striped">
         <thead>
             <tr>
@@ -67,7 +66,6 @@ function buildTopHTML() {
 
 function addQuotes() {
     let html = "";
-    // concat the table rows of quotes, 1 quote per row
     for (let i = 0; i < quotes.length; i++) {
         html += `
         <tr>

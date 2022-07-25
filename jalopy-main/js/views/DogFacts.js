@@ -1,5 +1,3 @@
-// highest level of detail: the HTML function
-// focuses on the HTML for the overall screen
 export default function dogFactsHTMLFunction(props) {
     return `
 <div class="container">
@@ -7,14 +5,12 @@ export default function dogFactsHTMLFunction(props) {
     
     ${makeDogFactCards(props.dogFacts)}
     
-    <button class="form-control" id="show-fact-btn">Show Facts</button>
+    <button class="form-control btn-dark" id="show-fact-btn">Show Facts</button>
 </div>
+<a data-link href="/insert-dog-fact">Insert Dog Fact</a>
 `;
 }
 
-// next lower level of detail: the function for all of the card HTML
-// uses a loop to iterate over the array and concats each card as it is made
-// by the lowest level function
 function makeDogFactCards(dogFacts) {
     let html = "";
     dogFacts.forEach(function(dogFact) {
@@ -23,8 +19,6 @@ function makeDogFactCards(dogFacts) {
     return html;
 }
 
-// the lowest level function: assembles the HTML for a single dog fact card
-// using the dog fact that is passed in as a parameter
 function makeDogFactCard(dogFact) {
     return `
 <div class="card">

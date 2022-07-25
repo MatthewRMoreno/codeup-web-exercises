@@ -30,7 +30,7 @@ export default function router(URI) {
             returnView: quotesHTMLFunction,
             state: {
                 quotes: {
-                    url: "https://quotes.fulgentcorp.com:12250/v1/quotes?random=true&limit=10",
+                    url: "https://quotes.fulgentcorp.com:12250/v1/quotes?random=false&limit=10",
                     headers: {
                         'Accept': 'application/json',
                         'Authorization': "venus-117"

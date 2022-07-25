@@ -3,8 +3,7 @@ import createView from "../createView.js"
 export default function InsertDogFactView(props) {
     return `
         <form class="container">
-            <h1>New Dog Fact</h1>
-            <h1>New Dog Fact</h1>
+            <h1 class="text-center">New Dog Fact</h1>
             <form>
                 <label for="dogFactText" class="form-label">Dog fact</label>
                 <input class="form-control" list="datalistOptions" id="dogFactText" placeholder="Enter a new dog fact">
@@ -20,7 +19,6 @@ export function InsertDogFactEvents() {
 }
 
 function addDogQuote() {
-    // make sure user entered something non-blank for the dog fact
     const factInput = document.querySelector("#dogFactText");
     const fact = factInput.value.trim();
     if(fact.length < 1) {
