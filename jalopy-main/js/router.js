@@ -1,5 +1,5 @@
-import Home, {HomeEvents} from "./views/Home.js";
-import AboutView, {AboutEvents} from "./views/About.js";
+import homeHTMLFunction , {HomeEvents} from "./views/Home.js";
+import aboutHTMLFunction, {AboutEvents} from "./views/About.js";
 import Error404 from "./views/Error404.js";
 import Loading from "./views/Loading.js";
 import Login from "./views/Login.js";
@@ -9,7 +9,8 @@ import {RegisterEvent} from "./views/Register.js";
 import UserIndex, {UserEvents} from "./views/User.js";
 import Logout, {LogoutEvents} from "./views/Logout.js";
 import DogFactsView, {DogFactsEvents} from "./views/DogFacts.js";
-import QuotesView, {QuotesEvents} from "./views/Quotes.js";
+import quotesHTMLFunction, {quotesJSFunction} from "./views/Quotes.js";
+import InsertDogFactView, {InsertDogFactEvents} from "./views/AddDogFact.js";
 
 /**
  * Returns the route object for a specific route based on the given URI
@@ -19,11 +20,48 @@ import QuotesView, {QuotesEvents} from "./views/Quotes.js";
 export default function router(URI) {
     const routes = {
         '/': {
-            returnView: Home,
+            returnView: homeHTMLFunction,
             state: {},
             uri: '/',
             title: 'Home',
             viewEvent: HomeEvents
+        },
+        '/quotes': {
+            returnView: quotesHTMLFunction,
+            state: {
+                quotes: {
+                    url: "https://quotes.fulgentcorp.com:12250/v1/quotes?random=true&limit=10",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': "venus-117"
+                    }
+                }
+            },
+            uri: '/quotes',
+            title: 'Quotes',
+            viewEvent: quotesJSFunction
+        },
+        '/insert-dog-fact': {
+            returnView: InsertDogFactView,
+            state: {},
+            uri: '/insert-dog-fact',
+            title: 'Insert a Dog Fact',
+            viewEvent: InsertDogFactEvents
+        },
+        '/dogs': {
+            returnView: DogFactsView,
+            state: {
+                dogFacts: {
+                    url: "https://dogfacts.fulgentcorp.com:12250/v1/facts?random=false&limit=10",
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': "venus-117"
+                    }
+                }
+            },
+            uri: '/dogs',
+            title: 'Facts about Dogs',
+            viewEvent: DogFactsEvents
         },
         '/logout': {
             returnView: Logout,
@@ -54,7 +92,7 @@ export default function router(URI) {
             viewEvent: UserEvents
         },
         '/about': {
-            returnView: AboutView,
+            returnView: aboutHTMLFunction,
             state: {},
             uri: '/about',
             title: 'About',
@@ -71,20 +109,6 @@ export default function router(URI) {
             state: {},
             uri: location.pathname,
             title: 'Loading...',
-        },
-        '/dogs': {
-            returnView: DogFactsView,
-            state: {},
-            uri: '/dogs',
-            title: 'Dog Facts',
-            viewEvent: DogFactsEvents
-        },
-        '/quotes': {
-            returnView: QuotesView,
-            state: {},
-            uri: '/quotes',
-            title: 'Quotes',
-            viewEvent: QuotesEvents
         }
     };
 

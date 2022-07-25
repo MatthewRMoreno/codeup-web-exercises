@@ -1,4 +1,5 @@
-const quotes = [
+
+let quotes = [
     {
         quote: "War is organized murder and torture against our brothers.",
         author: "Alfred Adler"
@@ -41,26 +42,50 @@ const quotes = [
     },
 ]
 
-export default function QuotesView(props) {
-    let html = `<h1 class="text-center fw-bold">Quotes</h1>
-                ${addQuote()}`;
+export default function quotesHTMLFunction(props) {
+    quotes = props.quotes;
+
+    let html = buildTopHTML();
+    html += addQuotes();
+    html += buildBottomHTML();
+
     return html;
 }
 
-function addQuote() {
-    let html = ""
+function buildTopHTML() {
+    return `
+        <!--build the top part of the screen-->
+        <h1>Quotes</h1>
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Quote</th>
+                <th>Author</th>
+        </tr>
+        </thead>`;
+}
+
+function addQuotes() {
+    let html = "";
+    // concat the table rows of quotes, 1 quote per row
     for (let i = 0; i < quotes.length; i++) {
-        html+= `
-    <div class="card" id="my-quotes">
-        <p class="quote">${quotes[i].quote}</p>
-        <p class="author">-${quotes[i].author}</p>
-    </div>
+        html += `
+        <tr>
+            <td>${quotes[i].quote}</td>
+            <td>${quotes[i].author}</td>
+        </tr>
         `;
     }
     return html;
 }
 
+function buildBottomHTML() {
+    return `
+        </table>
+    `;
 
-export function QuotesEvents() {
+}
 
+export function quotesJSFunction() {
+    console.log(quotes);
 }
