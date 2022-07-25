@@ -80,6 +80,8 @@ function addQuotes() {
 function buildBottomHTML() {
     return `
         </table>
+<!--        <a data-link href="/addQuote"><button id="quote-btn" class="btn-dark">Add New Quote</button></a>-->
+<a data-link href="/addQuote">Add New Quote</a>
     `;
 
 }
